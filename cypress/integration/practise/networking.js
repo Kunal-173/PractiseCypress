@@ -98,7 +98,7 @@ describe('request tseting', function(){
             cy.route("POST","/addproducttocart/details/14/1").as("camera")
             cy.get("input#add-to-cart-button-14").click()
             cy.wait("@camera").then((xhr)=>{
-                console.log(JSON.stringify(xhr.response.body, undefined, 4))
+                cy.log(JSON.stringify(xhr.response, undefined, 4))
                 console.dir(xhr.response)
                 for(var x in xhr.response.body){
                     cy.log(x + xhr.response.body[x])
